@@ -2,6 +2,8 @@ from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
 from fixture.james import JamesHelper
+from fixture.signup import SignupHelper
+from fixture.mail import MailHelper
 
 
 class Application:
@@ -17,6 +19,8 @@ class Application:
         self.wd.implicitly_wait(2)
         self.project = ProjectHelper(self)
         self.session = SessionHelper(self)
+        self.signup = SignupHelper(self)
+        self.mail = MailHelper(self)
         self.james = JamesHelper(self)
         self.config = config
         self.base_url = config['web']['baseUrl']
